@@ -49,7 +49,7 @@ class NewVisitorTest(LiveServerTestCase):
         # (Edith's hobby is tying fly-fishing lures)
         inputbox.send_keys('Buy peacock feathers')
 
-        # When she hits enter, the page updates, and  the page 
+        # When she hits enter, the page updates, and the page 
         # lists "1: Buy peacock feathers" as an item in a to-do 
         # list table
         inputbox.send_keys(Keys.ENTER)
