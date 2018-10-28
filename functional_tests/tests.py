@@ -124,12 +124,13 @@ class NewVisitorTest(StaticLiveServerTestCase):
     def test_layout_and_styling(self):
         # Edith goes to the homepage
         self.browser.get(self.live_server_url)
-        self.browser.set_window_size(1024, 768)
+        self.browser.set_window_size(500, 500)
+        size = self.browser.get_window_size()
 
         # She notices the input box is nicely centered
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width']/2, 512, delta=10
+            inputbox.location['x'] + inputbox.size['width']/2, size["width"]/2, delta=10
         )
 
         # She starts a new list and sees the input is
@@ -139,7 +140,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         self.wait_for_row_in_list_table('1: derp')
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width']/2, 512, delta=10
+            inputbox.location['x'] + inputbox.size['width']/2, size["width"]/2, delta=10
         )
 
 
